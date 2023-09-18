@@ -1,0 +1,124 @@
+body{
+	width: 1280px;
+	padding: 0px;
+	margin: 0 auto;
+
+}
+
+/* Ticket Container Styles */
+.ticket_container{
+	padding: 20px;
+	position: relative;
+	
+}
+.td_used{
+	
+	font-size: 30px;
+	font-weight: bold;
+	position: absolute;
+	right: 270px;
+	
+}
+.td_ing{
+	font-size: 30px;
+	font-weight: bold;
+	position: absolute;
+	left: 210px;
+}
+
+.ticket {
+  background-color: white;
+  width: 300px;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0px 0px 10px rgb(196, 159, 255);
+  margin-top: 50px;
+  margin-left: 135px;	
+	
+}
+
+.used_ticket {
+  background-color: white;
+  width: 300px;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0px 0px 10px rgba(196, 159, 255);
+  margin-top: 50px;
+  margin-left: 250px;
+}
+
+/* Ticket Header Styles */
+.ticket_header {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.ticket_header img {
+  width: 50px;
+  height: 50px;
+  margin-right: 10px;
+}
+
+.ticket_title {
+  font-size: 24px;
+  margin: 0;
+}
+
+/* Ticket Details Styles */
+.ticket-details {
+  margin-top: 20px;
+}
+
+.car_num,
+.parking_address {
+  font-size: 15px;
+  margin: 5px 0;
+}
+
+/* Share Container Styles */
+.share_container {
+  border-radius: 10px;
+  background-color: rgb(196, 159, 255);
+  padding: 20px;
+  margin-top: 20px;
+}
+
+.share {
+  font-size: 30px;
+  text-align: center;
+  color: white;
+  font-weight: bold;
+}
+
+.parking-details {
+  background-color: white;
+  border: 1px solid #ccc;
+  padding: 15px;
+  margin-bottom: 20px;
+}
+
+/* Buttons Styles */
+.buttons {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 20px;
+}
+
+.btn_home,
+.btn_cancel {
+  width: 120px;
+  height: 50px;
+  font-size: 20px;
+  background-color: #9555FF;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  margin: 20px;
+}
+
+.btn_home:hover,
+.btn_cancel:hover {
+  background-color: #BF9BFA;
+}

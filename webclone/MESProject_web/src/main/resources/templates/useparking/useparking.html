@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="stylesheet" href="/useparking/useparking.css">	
+<th:block th:insert="/headfoot/header.html"></th:block>
+</head>
+
+<body>
+	
+	<div class="ticket_container">
+	<table>
+		<tr>
+		<td class="td_ing">이용중인 주차권</td>
+		<td class="td_used">사용된 주차권</td>
+		</tr>
+		<tr>
+			<td>
+					<th:block th:each="r : ${ticket}">
+			
+						<th:block th:if="${r.FINSH == 0}">
+						  <div class="ticket" >
+						    <div class="ticket_header">
+						      <img src="img/parking_logo.png" alt="Parking Logo">
+						      <h1 class="ticket_title">주차장 이용권</h1>
+						    </div>
+						    <div class="ticket-details">
+						     	 	<p class="">2023-08-28</p>
+									<p class="car_num">[[${r.CAR_NUM}]]</p>
+								    <p class="parking_address">[[${r.ADDRESS}]]</p>
+							</div>
+						   </div>
+					  </th:block>
+					</th:block>
+			</td>
+			<td>
+				<th:block th:each="r : ${ticket}">
+						<th:block th:if="${r.FINSH == 1}">
+						  <div class="used_ticket" >
+						    <div class="ticket_header">
+						      <img src="img/parking_logo.png" alt="Parking Logo">
+						      <h1 class="ticket_title">주차장 이용권</h1>
+						    </div>
+						    <div class="ticket-details">
+						     	 	<p>2023-08-21</p>
+									<p class="car_num">[[${r.CAR_NUM}]]</p>
+								    <p class="parking_address">[[${r.ADDRESS}]]</p>
+							</div>
+						    </div>
+						  </th:block>
+					  </th:block>
+			</td>
+		</tr>
+	</table>
+	</div>
+		
+	<div class="share_container">
+		<p class="share">공유중인 주차장</p>
+	 	<th:block th:each="parking : ${parking_list}">
+    		<div class="parking-details">
+			
+     		<p class="address"><b>주소</b> : [[${parking.address}]]</p>
+      
+     		<p class="area"><b>주차면수</b> : [[${parking.parkSize}]]</p>
+            
+     		<p class="cost"><b>30분당 주차요금</b> : [[${parking.price}]]</p>
+      
+          	<p class="explain"><b>주차장 설명</b> : [[${parking.parkDescription}]]</p>
+    		</div>
+   		</th:block> 
+  	</div>
+  
+	<div class="buttons">
+    	<button class="btn_home" onclick="location.href='http://localhost:9999/mainmap'">홈으로</button>
+    	<button class="btn_cancel"  onclick="location.href='http://localhost:9999/cancle'">취소신청</button>
+	</div>
+	
+</body>
+	<footer>
+	<th:block th:insert="headfoot/footer.html"></th:block>
+	</footer>
+</html>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="stylesheet" href="/pay/pay_main.css">
+<script>
+	
+	
+    function showKakaoIcon() {
+		alert("결제를 진행해주세요.");
+        var kakaoIcon = document.getElementById("kakaoIcon");
+        kakaoIcon.style.display = "inline-block";
+    }
+</script>
+</head>
+<body>
+	
+	<div class="container">
+		<div class="information">
+		<img src="/img/img_pay/warning.svg" alt="주의 아이콘">
+		<p>아래 경우 <b class="warning">주차권 사용이 불가</b>합니다!</p>
+		<p>주차권이 취소되고, 전액 현장 요금이 발생합니다.</p>
+	
+		<p><img src="/img/img_pay/ticket.svg" alt="주차권 아이콘"> 입차 후에 주차권 구매</p>
+		<p><img src="/img/img_pay/parking.svg" alt="주차장 아이콘"> 출차 없이 주차권 2개 이상 연속 사용</p>
+		<p><img src="/img/img_pay/timeOver.svg" alt="시간 초과 아이콘"> 주차권 유효시간 외 주차</p>
+		<p><img src="/img/img_pay/return.svg" alt="재입차 아이콘"> 한번 출차 후 재입차</p>
+	
+	<div class="carNO_check">
+      <p>차번호: [[${carNum}]]</p>
+    </div>
+      <button class="btn_yes" onclick="showKakaoIcon()">차량번호가 맞습니다</button>
+      <button class="btn_no" onclick="alert('마이페이지에서 차량번호를 등록해주세요');location.href='http://localhost:9999/myPage'">차량번호가 아닙니다.</button>
+		<br>
+	<a id="kakaoIcon" href="/kakaoPay" style="display: none;"><img src="/img/img_pay/kakaopayIcon.png" alt="카카오 페이 아이콘"></a>
+		</div>
+	</div>
+</body>
+</html>
