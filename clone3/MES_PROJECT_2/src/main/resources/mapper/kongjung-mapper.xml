@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.project.mapper.KongjungMapper">
+
+	<resultMap type="process" id="process">
+		<result column="PROCESS_NUM" property="processNum" />
+		<result column="PROCESS_NAME" property="processName" />
+		<result column="RECIPE_NUM" property="recipeNum" />
+		<result column="P_TIME" property="processTime" />
+	</resultMap>
+	<!-- all리스트조회 -->
+	<select id="selectAllList" resultMap="process">
+		select PROCESS_NUM,PROCESS_NAME
+		from PROCESS
+	</select>
+
+	<!-- 검색 -->
+	<select id="selectSearch" parameterType="map"
+		resultMap="process">
+		select PROCESS_NUM,PROCESS_NAME
+		from PROCESS
+		where
+		(PROCESS_NUM like '%' || #{search} || '%' or PROCESS_NAME like '%' ||
+		#{search} || '%')
+
+	</select>
+	
+	<!-- 레시피 all리스트조회 -->
+	<select id="selectAllList1" resultMap="process">
+		select RECIPE_NUM, P_TIME
+		from RECIPE
+	</select>
+
+	<!-- 검색 -->
+	<select id="selectSearch1" parameterType="string"
+		resultMap="process">
+		select RECIPE_NUM,P_TIME
+		from RECIPE
+		where
+		(RECIPE_NUM like '%' || #{search} || '%')
+
+	</select>
+
+	<!-- 삭제 메서드 추가 -->
+	<delete id="deletekongjung" parameterType="string">
+		DELETE FROM PROCESS WHERE PROCESS_NUM = #{processNum}
+	</delete>
+	
+	<!-- 데이터 삽입을 위한 SQL 문 정의 -->
+    <insert id="KongjungInsert" parameterType="com.project.dto.KongjungDTO">
+    INSERT INTO PROCESS (PROCESS_NUM, M_NUM, PROCESS_NAME)
+    VALUES (#{processNum},  #{materialNo}, #{processName})
+	</insert>
+	
+	<select id="editKongjung" parameterType="String" resultMap="process">
+		select * from PROCESS where PROCESS_NUM = #{p_num}
+	</select>
+	
+	
+	
+</mapper>

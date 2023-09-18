@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="UTF-8">
+	<title>공정 정보</title>
+
+	<th:block th:include="header/header.html"></th:block>
+	<link rel="stylesheet" href="/kongjung/recipe_info.css">
+	<link rel="stylesheet" href="/common/global.css">
+
+	<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+	<script>
+		$(document).ready(function () {
+			// 페이지가 로드되자마자 조회 갯수를 표시하는 함수
+			function displayResultCount() {
+				let data = `search=${$(".search_img").val()}`;
+				$.ajax({
+					url: "/search1.do",
+					data: data,
+					dataType: "json",
+					type: "post",
+					success: function (r) {
+						var tag = "";
+						for (i = 0; i < r.length; i++) {
+							tag += "<tr>";
+							tag += "<td scope='row'><input class='form-check-input' type='checkbox' name='checkbox2' onclick='checkSelectAll(this)' id='checkbox1'></td>";
+							tag += `<td onclick="location.href='/recipe_update'">` + r[i].recipeNum + "</td>";
+							tag += "<td>" + r[i].processTime + "</td>";
+							tag += "</tr>";
+						}
+						var resultCount = r.length;
+
+						// 결과를 특정 요소에 표시
+						$(".result_count").text(resultCount + "개의 데이터가 조회되었습니다.");
+
+						$(".recipeN").html(tag);
+					}
+				});
+			}
+
+			// 페이지 로드 시 조회 갯수 표시 함수 호출
+			displayResultCount();
+
+			// 검색 버튼 클릭 시도 조회 갯수 표시 함수 호출
+			$(".search_btn").click(function () {
+				displayResultCount();
+			});
+		});
+
+		 
+	</script>
+</head>
+
+<body>
+	<div id="container">
+		<ul class="menu1" style="width: 1250px;">
+			<li>
+				<a href="/main.html">
+					<img src="img/home.png" width="40" height="40" viewBox="0 0 51 51">
+				</a>
+			</li>
+			<div style="margin-top: 15px;" width="300px" id="menu2">
+				<li>
+					<img src="img/arrow_right_pink.png" width="12" height="20" viewBox="0 0 17 29">
+				</li>
+				<li>
+					<h4>공정 관리</h4>
+				</li>
+				<li>
+					<img src="img/arrow_right_pink.png" width="12" height="20" viewBox="0 0 17 29">
+				</li>
+				<li>
+					<h4>통합 레시피 정보</h4>
+				</li>
+			</div>
+		</ul>
+		<div class="name">
+			<h2>통합 레시피 정보</h2>
+			<br>
+			<span class="result_count"></span>
+			<br>
+			<div class="search">
+				<input class="search_img" type="search" placeholder="검색">
+				<input class="search_btn" type="button" value="검색">
+			</div>
+		</div>
+		<div class="table_container" style="margin-top: 20px;">
+			<table class="table" border="2" width="1250px">
+				<thead>
+					<tr>
+						<th scope="col">
+							<input class="form-check-input" type="checkbox" value="selectall" name="selectall"
+								id="checkbox1" onclick="selectAll(this)">
+						</th>
+						<th id="col">레시피 코드</th>
+						<th>소요 시간(분)</th>
+					</tr>
+				</thead>
+				<tbody class="recipeN">
+					<tr th:each="r : ${recipeList}" >
+						<td scope="row">
+							<input class="form-check-input" type="checkbox" name="checkbox2"
+								onclick="checkSelectAll(this)" id="checkbox1">
+						</td>
+						<td onclick="location.href='/recipe_update'">[[${r.recipeNum}]]</td>
+
+						<td>[[${r.processTime}]]</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+		<div id="btn">
+			<button id="btn_delete" style="float: left" onclick="btn_delete()">선택삭제</a></button>
+			<button id="btn_insert" onclick="btn_insert()" style="float: right">등록</button>
+			<button id="btn_update" onclick="btn_update()" style="float: right">수정</button>
+		</div>
+	</div>
+</body>
+<script>
+	function checkSelectAll(checkbox) {
+		const selectall
+			= document.querySelector('input[name="selectall"]');
+
+		if (checkbox.checked === false) {
+			selectall.checked = false;
+		}
+	}
+	function selectAll(selectAll) {
+		const checkboxes
+			= document.getElementsByName('checkbox2');
+
+		checkboxes.forEach((checkbox) => {
+			checkbox.checked = selectAll.checked;
+		})
+	}
+</script>
+
+</html>

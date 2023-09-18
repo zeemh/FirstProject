@@ -1,0 +1,158 @@
+*{
+	margin: 0;
+	padding: 0;
+}
+
+.ch1{
+	display: inline-block;
+	position: absolute;
+	top:200px;
+	left: 100px;
+	width: 40%;
+	height: 20%;
+	text-align: center;
+	background-color: #ffffff;
+  	font-weight: bold;
+    text-decoration: none;
+    font-size: 35px;
+    color: #000000;
+    padding-top: 60px;
+
+}
+.ch2{
+	display: inline-block;
+	position: absolute;
+	left: 500px;
+	top: 200px;
+	width: 40%;
+	height: 20%;
+	text-align: center;
+	background-color: #ffffff;
+  font-weight: bold;
+    text-decoration: none;
+    font-size: 35px;
+    color: #000000;
+    padding-top: 60px;
+
+}
+.ch3{
+	display: inline-block;
+	position: absolute;
+	left:  100px;
+	top: 700px;
+	width: 40%;
+	height: 20%;
+	text-align: center;
+	background-color: #ffffff;
+  font-weight: bold;
+    text-decoration: none;
+    font-size: 35px;
+    color: #000000;
+    padding-top: 60px;
+
+}
+.ch4{
+	display: inline-block;
+	position: absolute;
+	left:  500px;
+	top: 700px;
+	width: 40%;
+	height: 20%;
+	text-align: center;
+			background-color: #ffffff;
+  font-weight: bold;
+    text-decoration: none;
+    font-size: 35px;
+    color: #000000;
+    padding-top: 60px;
+
+	
+}
+.ch5{
+	display: inline-block;
+	position: absolute;
+	left:  100px;
+	top: 1200px;
+	width: 40%;
+	height: 20%;
+	text-align: center;
+	background-color: #ffffff;
+  font-weight: bold;
+    text-decoration: none;
+    font-size: 35px;
+    color: #000000;
+    padding-top: 60px;
+
+}
+.ch6{
+	display: inline-block;
+	position: absolute;
+	left:  500px;
+	top: 1200px;
+	width: 40%;
+	height: 20%;
+	text-align: center;
+	background-color: #ffffff;
+    font-weight: bold;
+    text-decoration: none;
+    font-size: 35px;
+    color: #000000;
+    padding-top: 60px;
+
+}
+
+#ch1{
+	width:40%;
+	height: 40%;
+}
+#ch2{
+	width:40%;
+	height: 40%;
+}
+#ch3{
+	width:40%;
+	height: 40%;
+}#ch4{
+	width:40%;
+	height: 40%;
+}#ch5{
+	width:40%;
+	height: 40%;
+}#ch6{
+	width:40%;
+	height: 40%;
+}
+
+#ch1:hover{
+	width:40%;
+	height: 40%;
+		background-color: #ffbebe;
+
+}
+#ch2:hover{
+	width:40%;
+	height: 40%;
+		background-color: #ffbebe;
+
+}
+#ch3:hover{
+	width:40%;
+	height: 40%;
+		background-color: #ffbebe;
+
+}#ch4:hover{
+	width:40%;
+	height: 40%;
+			background-color: #ffbebe;
+
+}#ch5:hover{
+	width:40%;
+	height: 40%;
+			background-color: #ffbebe;
+
+}#ch6:hover{
+	width:40%;
+	height: 40%;
+			background-color: #ffbebe;
+
+}
